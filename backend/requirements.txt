@@ -1,0 +1,24 @@
+# FastAPI and server
+fastapi==0.109.0
+uvicorn[standard]==0.27.0
+pydantic==2.5.3
+pydantic-settings==2.1.0
+
+# Database (choose one based on preference)
+# Option 1: SQLAlchemy with SQLite
+sqlalchemy==2.0.25
+
+# Option 2: SQLModel (combines SQLAlchemy + Pydantic)
+# sqlmodel==0.0.14
+
+# CORS and middleware
+python-multipart==0.0.6
+
+# Development tools
+pytest==7.4.4
+pytest-asyncio==0.23.3
+httpx==0.26.0  # For testing FastAPI endpoints
+
+# Optional: for future features
+# python-jose[cryptography]==3.3.0  # JWT tokens if adding auth later
+# passlib[bcrypt]==1.7.4  # Password hashing if adding auth later
