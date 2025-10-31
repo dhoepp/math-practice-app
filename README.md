@@ -1,8 +1,6 @@
 # Math Practice App
 
-Educational web app for 1st grade math practice. No ads, no dark patterns, no manipulation - just learning.
-
-Built by homeschooling parents who wanted something better for their kids.
+Educational web app for 1st grade math practice. A clean, focused learning tool without distractions.
 
 ## Current Status: MVP Development
 
