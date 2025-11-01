@@ -5,11 +5,13 @@ Educational web app for 1st grade math practice. A clean, focused learning tool 
 ## Current Status: MVP Development
 
 **What's working:**
+
 - Project structure scaffolded ✓
 - Backend API stub (FastAPI) ✓
 - Frontend app stub (React + TypeScript + Tailwind) ✓
 
 **What's next:**
+
 - Implement problem generation
 - Build UI components
 - Test with real 6-year-old
@@ -17,30 +19,34 @@ Educational web app for 1st grade math practice. A clean, focused learning tool 
 ## Quick Start
 
 ### Backend Setup
+
 ```bash
 cd backend
 pip install -r requirements.txt
 uvicorn app.main:app --reload
 ```
 
-Visit http://localhost:8000/docs for API documentation.
+Visit <http://localhost:8000/docs> for API documentation.
 
 ### Frontend Setup
+
 ```bash
 cd frontend
 npm install
 npm run dev
 ```
 
-Visit http://localhost:3000 to see the app.
+Visit <http://localhost:3000> to see the app.
 
 ## MVP Feature Set
 
 **Practice Modes:**
+
 - Addition (0-10)
 - Subtraction (0-10)
 
 **User Experience:**
+
 - Large, touch-friendly number pad
 - Immediate feedback on answers
 - Simple visual rewards
@@ -48,6 +54,7 @@ Visit http://localhost:3000 to see the app.
 - Session summary screen
 
 **Tech Stack:**
+
 - Backend: Python 3.11+ with FastAPI
 - Frontend: React 18+ with TypeScript (Vite)
 - Database: SQLite (MVP)
@@ -65,7 +72,7 @@ See GUIDELINES.md for detailed development principles.
 
 ## Project Structure
 
-```
+```plain
 math-practice-app/
 ├── backend/              # FastAPI Python backend
 │   ├── app/
@@ -112,6 +119,7 @@ Focus on getting one thing working really well: simple math practice that a 6-ye
 Manual testing with real kids > automated tests for MVP.
 
 Test checklist:
+
 - [ ] Works on iPad Safari
 - [ ] 6-year-old can use without help
 - [ ] Touch targets are big enough
