@@ -62,7 +62,10 @@ TODO: Set up database initialization and migrations.
 ## Testing
 
 ```bash
-# Run all tests
+# Test addition problem generator
+python -m app.services.problem_service
+
+# Run all tests 
 pytest
 
 # Run with coverage

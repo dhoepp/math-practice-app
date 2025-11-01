@@ -32,21 +32,26 @@ def generate_problem(
     inputRounds = int(inputRounds)
 
     for i in range(inputRounds):
-        print('Round ', i + 1, ': ')
+        print('\nRound ', i + 1, ': \n')
         operand1 = random.randint(0, 10)
         operand2 = random.randint(0, 10)
         print(operand1, '+', operand2, '= ?')
         answer = operand1 + operand2
         
 
+        while True:
+            try:
+                userinput = int(input())
+                break
+            except ValueError:
+                print()
 
-        userinput = input()
-        userinput = int(userinput)
+
         if userinput == answer:
-            print('correct!')
+            print('\ncorrect!\n')
         
         else:
-            print('incorrect')
+            print('\nincorrect\n')
     
 generate_problem(Problem)
 
