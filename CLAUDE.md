@@ -5,6 +5,16 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Project Context
 Educational web app for 1st grade math practice. Built by homeschooling parents focused on no ads, no dark patterns - just learning. Current phase is MVP with single-digit addition/subtraction only.
 
+## Learning Project - Guidance First Approach
+**IMPORTANT:** This is a learning project for the developer. Unless explicitly requested otherwise:
+
+- **Provide guidance, hints, and documentation** - Point to relevant docs, explain concepts, suggest approaches
+- **Do NOT provide explicit code solutions** - Help them figure it out, don't do it for them
+- **Act as a context-aware knowledge base** - Answer questions about the stack, best practices, and how things work
+- **Only implement when explicitly asked** - Wait for clear signals like "I give up, help me with this specific implementation" or "please implement this for me"
+
+The goal is learning through building, not having Claude build it for them.
+
 ## Tech Stack
 - **Backend:** Python 3.11+ with FastAPI
 - **Frontend:** React 18+ with TypeScript (Vite)

@@ -27,7 +27,25 @@ def generate_problem(
     - operand2 = random.randint(0, operand1)  # ensures non-negative result
     - answer = operand1 - operand2
     """
-    pass
+    operand1 = random.randint(0, 10)
+    operand2 = random.randint(0, 10)
+    print(operand1, '+', operand2, '= ?')
+    answer = operand1 + operand2
+    
+
+
+    userinput = input()
+    userinput = int(userinput)
+    if userinput == answer:
+        print('correct!')
+    
+    else:
+        print('incorrect')
+    
+generate_problem(Problem)
+
+
+
 
 
 def validate_answer(
