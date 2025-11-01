@@ -27,20 +27,26 @@ def generate_problem(
     - operand2 = random.randint(0, operand1)  # ensures non-negative result
     - answer = operand1 - operand2
     """
-    operand1 = random.randint(0, 10)
-    operand2 = random.randint(0, 10)
-    print(operand1, '+', operand2, '= ?')
-    answer = operand1 + operand2
-    
+    print('How many rounds?')
+    inputRounds = input()
+    inputRounds = int(inputRounds)
+
+    for i in range(inputRounds):
+        print('Round ', i + 1, ': ')
+        operand1 = random.randint(0, 10)
+        operand2 = random.randint(0, 10)
+        print(operand1, '+', operand2, '= ?')
+        answer = operand1 + operand2
+        
 
 
-    userinput = input()
-    userinput = int(userinput)
-    if userinput == answer:
-        print('correct!')
-    
-    else:
-        print('incorrect')
+        userinput = input()
+        userinput = int(userinput)
+        if userinput == answer:
+            print('correct!')
+        
+        else:
+            print('incorrect')
     
 generate_problem(Problem)
 
