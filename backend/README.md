@@ -5,6 +5,7 @@ FastAPI backend for the 1st grade math practice application.
 ## Setup
 
 ### Prerequisites
+
 - Python 3.11 or higher
 - pip
 
@@ -18,6 +19,7 @@ pip install -r requirements.txt
 ## Running the Server
 
 ### Development Mode
+
 ```bash
 # From the backend directory
 uvicorn app.main:app --reload
@@ -27,21 +29,25 @@ python -m app.main
 ```
 
 The API will be available at:
-- API: http://localhost:8000
-- Interactive API docs (Swagger): http://localhost:8000/docs
-- Alternative API docs (ReDoc): http://localhost:8000/redoc
+
+- API: <http://localhost:8000>
+- Interactive API docs (Swagger): <http://localhost:8000/docs>
+- Alternative API docs (ReDoc): <http://localhost:8000/redoc>
 
 ## API Endpoints
 
 ### Health Check
+
 - `GET /` - Basic health check
 - `GET /health` - Detailed health check
 
 ### Problems (TODO)
+
 - `POST /api/problems/generate` - Generate a random math problem
 - `POST /api/problems/validate` - Validate user's answer
 
 ### Sessions (TODO)
+
 - `POST /api/sessions` - Create a new practice session
 - `GET /api/sessions/{session_id}` - Get session details
 - `POST /api/sessions/{session_id}/submit` - Submit answer for a problem
@@ -65,7 +71,7 @@ pytest --cov=app tests/
 
 ## Project Structure
 
-```
+```plain
 backend/
 ├── app/
 │   ├── __init__.py
