@@ -27,33 +27,41 @@ def generate_problem(
     - operand2 = random.randint(0, operand1)  # ensures non-negative result
     - answer = operand1 - operand2
     """
-    print('How many rounds?')
+
+    """ print('How many rounds?')
     inputRounds = input()
-    inputRounds = int(inputRounds)
+    inputRounds = int(inputRounds) """
 
-    for i in range(inputRounds):
-        print('\nRound ', i + 1, ': \n')
-        operand1 = random.randint(0, 10)
-        operand2 = random.randint(0, 10)
-        print(operand1, '+', operand2, '= ?')
-        answer = operand1 + operand2
+    if mode == "addition":
+        """ for i in range():
+            print('\nRound ', i + 1, ': \n') """
+        operand1 = random.randint(0, max_number)
+        operand2 = random.randint(0, max_number)
+        """ print(operand1, '+', operand2, '= ?')"""
+        answer = operand1 + operand2 
+        #return operand1,operand2,answer
+
+
+    elif mode == "subtraction":
+        for i in range(inputRounds):
+            print('\nRound ', i + 1, ': \n')
+            operand1 = random.randint(5, max_number) #5 or higher
+            operand2 = random.randint(0, operand1) #to prevent negative numbers
+            print(operand1, '-', operand2, '= ?')
+            answer = operand1 - operand2
+
+            while True:
+                try:
+                    userinput = int(input())
+                    break
+                except ValueError:
+                    print()
+
+            if userinput == answer:
+                print('\ncorrect!\n')
         
-
-        while True:
-            try:
-                userinput = int(input())
-                break
-            except ValueError:
-                print()
-
-
-        if userinput == answer:
-            print('\ncorrect!\n')
-        
-        else:
-            print('\nincorrect\n')
-    
-generate_problem(Problem)
+            else:
+                print('\nincorrect\n')
 
 
 
