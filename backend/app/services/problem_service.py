@@ -27,33 +27,63 @@ def generate_problem(
     - operand2 = random.randint(0, operand1)  # ensures non-negative result
     - answer = operand1 - operand2
     """
-    print('How many rounds?')
-    inputRounds = input()
-    inputRounds = int(inputRounds)
 
-    for i in range(inputRounds):
-        print('\nRound ', i + 1, ': \n')
-        operand1 = random.randint(0, 10)
-        operand2 = random.randint(0, 10)
-        print(operand1, '+', operand2, '= ?')
-        answer = operand1 + operand2
-        
+    if mode == "addition":
+        print('How many rounds?')
+        inputRounds = input()
+        inputRounds = int(inputRounds)
 
-        while True:
-            try:
-                userinput = int(input())
-                break
-            except ValueError:
-                print()
+        for i in range(inputRounds):
+            print('\nRound ', i + 1, ': \n')
+            operand1 = random.randint(0, 10)
+            operand2 = random.randint(0, 10)
+            print(operand1, '+', operand2, '= ?')
+            answer = operand1 + operand2
+            
+
+            while True:
+                try:
+                    userinput = int(input())
+                    break
+                except ValueError:
+                    print()
 
 
-        if userinput == answer:
-            print('\ncorrect!\n')
-        
-        else:
-            print('\nincorrect\n')
+            if userinput == answer:
+                print('\ncorrect!\n')
+            
+            else:
+                print('\nincorrect\n')
+
+
+    elif mode == "subtraction":
+        inputRounds = input("How many rounds? ")
+        inputRounds = int(inputRounds)
+
+        for i in range(inputRounds):
+            print('\nRound ', i + 1, ': \n')
+            operand1 = random.randint(5, 10)
+            operand2 = random.randint(0, operand1)
+            print(operand1, '-', operand2, '= ?')
+            answer = operand1 - operand2
+
+            while True:
+                try:
+                    userinput = int(input())
+                    break
+                except ValueError:
+                    print()
+
+            if userinput == answer:
+                print('\ncorrect!\n')
+
+            else:
+                print('\nincorrect\n')
     
-generate_problem(Problem)
+print("addition or subtraction?")
+mode = input().strip().lower()
+generate_problem(mode)
+
 
 
 
