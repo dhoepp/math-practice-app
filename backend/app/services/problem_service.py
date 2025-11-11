@@ -63,7 +63,7 @@ def generate_problem(
         for i in range(inputRounds):
             print('\nRound ', i + 1, ': \n')
             operand1 = random.randint(5, 10)
-            operand2 = random.randint(0, operand1)
+            operand2 = random.randint(1, operand1-1)
             print(operand1, '-', operand2, '= ?')
             answer = operand1 - operand2
 
