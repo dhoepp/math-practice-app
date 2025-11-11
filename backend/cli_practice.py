@@ -2,13 +2,13 @@ import random
 from app.services.problem_service import Problem,generate_problem
 
 print("addition or subtraction?")
-generate_problem(input())
+problem = generate_problem(input())
 
 print('How many rounds?')
 inputRounds = input()
 inputRounds = int(inputRounds)
-operand1 = generate_problem.operand1
-operand2 = generate_problem.operand2
+operand1 = problem.operand1
+operand2 = problem.operand2
 
 for i in range(inputRounds):
     print('\nRound ', i + 1, ': \n')
