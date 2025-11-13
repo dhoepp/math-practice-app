@@ -5,8 +5,8 @@ print("addition or subtraction?")
 problem = generate_problem(input())
 
 print('How many rounds?')
-inputRounds = input()
-inputRounds = int(inputRounds)
+inputRoundsinput = input()
+inputRounds = int(inputRoundsinput)
 operand1 = problem.operand1
 operand2 = problem.operand2
 
