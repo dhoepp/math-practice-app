@@ -1,28 +1,28 @@
-import random 
-from app.services.problem_service import Problem,generate_problem
+from app.services.problem_service import generate_problem
 
-print("addition or subtraction?")
-problem = generate_problem(input())
+mode = input("addition or subtraction?")
 
 print('How many rounds?')
-inputRoundsinput = input()
-inputRounds = int(inputRoundsinput)
-operand1 = problem.operand1
-operand2 = problem.operand2
+inputRounds = input()
+inputRounds = int(inputRounds)
 
 for i in range(inputRounds):
+    problem = generate_problem(mode)
+    operand1 = problem.operand1
+    operand2 = problem.operand2
+    operator = problem.operator
     print('\nRound ', i + 1, ': \n')
-    print(operand1, '+', operand2, '= ?')
+    print(operand1, operator, operand2, '= ?')
     
-while True:
-    try:
-        userinput = int(input())
-        break
-    except ValueError:
-        print()
+    while True:
+        try:
+            userinput = int(input())
+            break
+        except ValueError:
+            print()
 
-if userinput == Problem.answer:
-    print('\ncorrect!\n')
+    if userinput == problem.answer:
+        print('\ncorrect!\n')
 
-else:
-    print('\nincorrect\n')
+    else:
+        print('\nincorrect\n')

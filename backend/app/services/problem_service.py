@@ -28,42 +28,29 @@ def generate_problem(
     - answer = operand1 - operand2
     """
 
-    """ print('How many rounds?')
-    inputRounds = input()
-    inputRounds = int(inputRounds) """
-
     if mode == "addition":
-        """ for i in range():
-            print('\nRound ', i + 1, ': \n') """
         operand1 = random.randint(0, max_number)
         operand2 = random.randint(0, max_number)
-        """ print(operand1, '+', operand2, '= ?')"""
+        operator = "+"
         answer = operand1 + operand2 
-        return operand1,operand2,answer
+        return Problem(
+            operand1=operand1, 
+            operand2=operand2, 
+            operator=operator, 
+            answer=answer)
 
 
     elif mode == "subtraction":
-        for i in range(inputRounds):
-            print('\nRound ', i + 1, ': \n')
-            operand1 = random.randint(5, max_number) #5 or higher
-            operand2 = random.randint(0, operand1) #to prevent negative numbers
-            print(operand1, '-', operand2, '= ?')
-            answer = operand1 - operand2
-
-            while True:
-                try:
-                    userinput = int(input())
-                    break
-                except ValueError:
-                    print()
-
-            if userinput == answer:
-                print('\ncorrect!\n')
-        
-            else:
-                print('\nincorrect\n')
-
-
+        operand1 = random.randint(5, max_number) #5 or higher
+        operand2 = random.randint(0, operand1) #to prevent negative numbers
+        operator = "-"
+        answer = operand1 - operand2
+        return Problem(
+            operand1=operand1, 
+            operand2=operand2, 
+            operator=operator, 
+            answer=answer)
+           
 
 
 
