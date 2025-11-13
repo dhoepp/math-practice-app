@@ -7,7 +7,6 @@ from typing import Literal
 
 from app.models.problem import Problem
 
-
 def generate_problem(
     mode: Literal["addition", "subtraction"],
     max_number: int = 10,
@@ -29,64 +28,28 @@ def generate_problem(
     """
 
     if mode == "addition":
-        print('How many rounds?')
-        inputRounds = input()
-        inputRounds = int(inputRounds)
-
-        for i in range(inputRounds):
-            print('\nRound ', i + 1, ': \n')
-            operand1 = random.randint(0, 10)
-            operand2 = random.randint(0, 10)
-            print(operand1, '+', operand2, '= ?')
-            answer = operand1 + operand2
-            
-
-            while True:
-                try:
-                    userinput = int(input())
-                    break
-                except ValueError:
-                    print()
-
-
-            if userinput == answer:
-                print('\ncorrect!\n')
-            
-            else:
-                print('\nincorrect\n')
+        operand1 = random.randint(0, max_number)
+        operand2 = random.randint(0, max_number)
+        operator = "+"
+        answer = operand1 + operand2 
+        return Problem(
+            operand1=operand1, 
+            operand2=operand2, 
+            operator=operator, 
+            answer=answer)
 
 
     elif mode == "subtraction":
-        inputRounds = input("How many rounds? ")
-        inputRounds = int(inputRounds)
-
-        for i in range(inputRounds):
-            print('\nRound ', i + 1, ': \n')
-            operand1 = random.randint(5, 15)
-            operand2 = random.randint(1, operand1-1)
-            print(operand1, '-', operand2, '= ?')
-            answer = operand1 - operand2
-
-            while True:
-                try:
-                    userinput = int(input())
-                    break
-                except ValueError:
-                    print()
-
-            if userinput == answer:
-                print('\ncorrect!\n')
-
-            else:
-                print('\nincorrect\n')
-    
-
-mode = input("addition or subtraction?").strip().lower()
-max_number_input = input("Enter the maximum number for operands (default 10): ").strip()
-max_number = int(max_number_input) if max_number_input else 10
-generate_problem(mode,max_number)
-
-
+        operand1 = random.randint(5, max_number) #5 or higher
+        operand2 = random.randint(0, operand1) #to prevent negative numbers
+        operator = "-"
+        answer = operand1 - operand2
+        return Problem(
+            operand1=operand1, 
+            operand2=operand2, 
+            operator=operator, 
+            answer=answer)
+           
 
 
 
