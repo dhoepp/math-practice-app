@@ -6,7 +6,6 @@ import random
 from typing import Literal
 
 from app.models.problem import Problem
-print(f"Problem returned: {Problem}")
 
 def generate_problem(
     mode: Literal["addition", "subtraction"],
