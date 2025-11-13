@@ -62,7 +62,7 @@ def generate_problem(
 
         for i in range(inputRounds):
             print('\nRound ', i + 1, ': \n')
-            operand1 = random.randint(5, 10)
+            operand1 = random.randint(5, 15)
             operand2 = random.randint(1, operand1-1)
             print(operand1, '-', operand2, '= ?')
             answer = operand1 - operand2
@@ -80,10 +80,11 @@ def generate_problem(
             else:
                 print('\nincorrect\n')
     
-print("addition or subtraction?")
-mode = input().strip().lower()
-generate_problem(mode)
 
+mode = input("addition or subtraction?").strip().lower()
+max_number_input = input("Enter the maximum number for operands (default 10): ").strip()
+max_number = int(max_number_input) if max_number_input else 10
+generate_problem(mode,max_number)
 
 
 
