@@ -62,7 +62,7 @@ export default function PracticeSession() {
     }, [])
     
   return (
-    <div>
+    <div className="p-8 text-center">
       {problem ? (
         <div>
           <h2>Solve the problem:</h2>
