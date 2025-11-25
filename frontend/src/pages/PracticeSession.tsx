@@ -35,11 +35,17 @@
  * 6. When all problems done, navigate to /complete
  */
 import React from 'react'
-import { generateProblem, type Problem } from '../services/api'
+import { generateProblem, submitAnswer, type Problem } from '../services/api'
 
 export default function PracticeSession() {
   // TODO: Implement
   const [problem, setProblem] = React.useState<Problem | null>(null)
+  const [userAnswer, setUserAnswer] = React.useState('')
+  const handleSubmit = async () => {
+    const answerSubmit = (Number(userAnswer))
+    console.log('Submitting answer:', answerSubmit)
+    console.log('Your answer is: ', answerSubmit == problem?.answer)
+  }
   React.useEffect(() => {
     // fetch and store in state
     async function fetchProblem() {
@@ -55,10 +61,16 @@ export default function PracticeSession() {
         <div>
           <h2>Solve the problem:</h2>
           <p>{problem.operand1} {problem.operator} {problem.operand2} = ?</p>
+          <input type="text" value={userAnswer} onChange={(e) => setUserAnswer(e.target.value)} placeholder="Your answer here" />
+          <button onClick={handleSubmit}>Submit</button>
+          <p>You typed: {userAnswer}</p>
+          
     </div>
       ) : (
         <p>Loading problem...</p>
       )}
+    
+
     </div>
   )
 }
