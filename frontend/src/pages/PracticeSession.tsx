@@ -50,8 +50,8 @@ export default function PracticeSession() {
     setFeedback(feedbackMessage)
     console.log('Submitting answer:', answerInt)
     console.log('Your answer is: ', answerInt === problem?.answer)
+    
   }
-  // const feedbackMessage = userAnswer === '' ? '' : (Number(userAnswer) === problem?.answer ? 'Correct!' : `Incorrect. The correct answer is ${problem?.answer}.`)
   React.useEffect(() => {
     // fetch and store in state
     async function fetchProblem() {
@@ -70,7 +70,7 @@ export default function PracticeSession() {
           <input type="text" value={userAnswer}  onChange={(e) => setUserAnswer(e.target.value)}  placeholder="Your answer here" />
           <button onClick={handleSubmit}>Submit</button>
           {/* <p>You typed: {userAnswer}</p> */}
-          <p>{feedbackMessage}</p>
+          <p>{feedbackMessage}</p> 
           
     </div>
       ) : (
