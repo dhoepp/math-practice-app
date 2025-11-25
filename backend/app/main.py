@@ -5,8 +5,7 @@ FastAPI application entry point
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-# TODO: Import routes once created
-# from app.routes import problems, sessions
+from app.routes import problems, sessions
 
 app = FastAPI(
     title="Math Practice API",
@@ -44,7 +43,7 @@ async def health_check():
 
 
 # TODO: Include routers for different endpoints
-# app.include_router(problems.router, prefix="/api/problems", tags=["problems"])
+app.include_router(problems.router, prefix="/api/problems", tags=["problems"])
 # app.include_router(sessions.router, prefix="/api/sessions", tags=["sessions"])
 
 

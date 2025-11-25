@@ -34,13 +34,50 @@
  * 5. After delay, move to next problem
  * 6. When all problems done, navigate to /complete
  */
+import React from 'react'
+import { generateProblem, submitAnswer, type Problem } from '../services/api'
 
 export default function PracticeSession() {
   // TODO: Implement
+  const [problem, setProblem] = React.useState<Problem | null>(null)
+  const [userAnswer, setUserAnswer] = React.useState('')
+  const [feedbackMessage, setFeedback] = React.useState<string | null>(null)
+
+  const handleSubmit = async () => {
+    const answerInt = (Number(userAnswer))
+    const isCorrect = answerInt === problem?.answer
+    const feedbackMessage = isCorrect ? 'Correct!' : `Incorrect. The correct answer is ${problem?.answer}.`
+    setFeedback(feedbackMessage)
+    console.log('Submitting answer:', answerInt)
+    console.log('Your answer is: ', answerInt === problem?.answer)
+    
+  }
+  React.useEffect(() => {
+    // fetch and store in state
+    async function fetchProblem() {
+      const newProblem = await generateProblem('addition', 10)
+      setProblem(newProblem)
+    }
+    fetchProblem()
+    }, [])
+    
   return (
-    <div>
-      <h1>Practice Session</h1>
-      <p>TODO: Implement practice session page</p>
+    <div className="p-8 text-center">
+      {problem ? (
+        <div>
+          <h2>Solve the problem:</h2>
+          <p>{problem.operand1} {problem.operator} {problem.operand2} = ?</p>
+          <input type="text" value={userAnswer}  onChange={(e) => setUserAnswer(e.target.value)}  placeholder="Your answer here" />
+          <button onClick={handleSubmit}>Submit</button>
+          {/* <p>You typed: {userAnswer}</p> */}
+          <p>{feedbackMessage}</p> 
+          
+    </div>
+      ) : (
+        <p>Loading problem...</p>
+      )}
+    
+
     </div>
   )
 }
