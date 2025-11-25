@@ -14,7 +14,7 @@
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000'
 
 // TODO: Add TypeScript interfaces for API requests/responses
-interface Problem {
+export interface Problem {
   id?: number
   operand1: number
   operand2: number
@@ -57,9 +57,12 @@ export async function checkHealth(): Promise<{ status: string }> {
  */
 export async function generateProblem(
   mode: 'addition' | 'subtraction',
-  maxNumber: number = 10
+  maxNumber: number = 10,
 ): Promise<Problem> {
-  throw new Error('Not implemented')
+  const url = `${API_BASE_URL}/api/problems/generate?mode=${mode}&max_number=${maxNumber}`
+  const response = await fetch(url, { method: 'POST' })
+  const data = await response.json()
+  return data
 }
 
 /**

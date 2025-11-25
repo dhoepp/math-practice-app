@@ -34,13 +34,31 @@
  * 5. After delay, move to next problem
  * 6. When all problems done, navigate to /complete
  */
+import React from 'react'
+import { generateProblem, type Problem } from '../services/api'
 
 export default function PracticeSession() {
   // TODO: Implement
+  const [problem, setProblem] = React.useState<Problem | null>(null)
+  React.useEffect(() => {
+    // fetch and store in state
+    async function fetchProblem() {
+      const newProblem = await generateProblem('addition', 10)
+      setProblem(newProblem)
+    }
+    fetchProblem()
+    }, [])
+    
   return (
     <div>
-      <h1>Practice Session</h1>
-      <p>TODO: Implement practice session page</p>
+      {problem ? (
+        <div>
+          <h2>Solve the problem:</h2>
+          <p>{problem.operand1} {problem.operator} {problem.operand2} = ?</p>
+    </div>
+      ) : (
+        <p>Loading problem...</p>
+      )}
     </div>
   )
 }
