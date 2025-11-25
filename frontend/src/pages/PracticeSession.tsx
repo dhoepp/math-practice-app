@@ -41,11 +41,17 @@ export default function PracticeSession() {
   // TODO: Implement
   const [problem, setProblem] = React.useState<Problem | null>(null)
   const [userAnswer, setUserAnswer] = React.useState('')
+  const [feedbackMessage, setFeedback] = React.useState<string | null>(null)
+
   const handleSubmit = async () => {
-    const answerSubmit = (Number(userAnswer))
-    console.log('Submitting answer:', answerSubmit)
-    console.log('Your answer is: ', answerSubmit == problem?.answer)
+    const answerInt = (Number(userAnswer))
+    const isCorrect = answerInt === problem?.answer
+    const feedbackMessage = isCorrect ? 'Correct!' : `Incorrect. The correct answer is ${problem?.answer}.`
+    setFeedback(feedbackMessage)
+    console.log('Submitting answer:', answerInt)
+    console.log('Your answer is: ', answerInt === problem?.answer)
   }
+  // const feedbackMessage = userAnswer === '' ? '' : (Number(userAnswer) === problem?.answer ? 'Correct!' : `Incorrect. The correct answer is ${problem?.answer}.`)
   React.useEffect(() => {
     // fetch and store in state
     async function fetchProblem() {
@@ -61,9 +67,10 @@ export default function PracticeSession() {
         <div>
           <h2>Solve the problem:</h2>
           <p>{problem.operand1} {problem.operator} {problem.operand2} = ?</p>
-          <input type="text" value={userAnswer} onChange={(e) => setUserAnswer(e.target.value)} placeholder="Your answer here" />
+          <input type="text" value={userAnswer}  onChange={(e) => setUserAnswer(e.target.value)}  placeholder="Your answer here" />
           <button onClick={handleSubmit}>Submit</button>
-          <p>You typed: {userAnswer}</p>
+          {/* <p>You typed: {userAnswer}</p> */}
+          <p>{feedbackMessage}</p>
           
     </div>
       ) : (
