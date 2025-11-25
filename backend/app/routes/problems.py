@@ -6,7 +6,7 @@ from fastapi import APIRouter, HTTPException
 from typing import Literal
 
 from app.models.problem import Problem, ProblemCreate
-# from app.services.problem_service import generate_problem
+from app.services.problem_service import generate_problem
 
 router = APIRouter()
 
@@ -26,8 +26,8 @@ async def generate_problem_endpoint(
     - Return problem without answer for frontend
     """
     # Example stub:
-    # problem = generate_problem(mode, max_number)
-    # return problem
+    problem = generate_problem(mode, max_number)
+    return problem
 
     raise HTTPException(status_code=501, detail="Not implemented yet")
 
