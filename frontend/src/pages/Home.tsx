@@ -54,7 +54,7 @@ export default function Home() {
         </button>
       </div>
       <div>Max Number:</div>
-      <input className='border-2' type="text" value={maxNumber} onChange={(e) => setMaxNumber(e.target.value)}/>
+      <input className='border-2' type="number" value={maxNumber} onChange={(e) => setMaxNumber(e.target.value)}/>
 
     </div>
   )
