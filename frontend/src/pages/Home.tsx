@@ -35,11 +35,26 @@ export default function Home() {
     <div className="p-8 text-center">
       <h1>Mode Selection</h1>
       {/* <p>TODO: Implement home page</p> */}
-      <div>
-        <button onClick={() => handleModeSelection('addition')}>add</button>
-        <button onClick={() => handleModeSelection('subtraction')}>sub</button>
+      <div className="flex gap-4 justify-center">
+        <button 
+          onClick={() => handleModeSelection('addition')}
+          className='w-[30%] h-48 border-4 border-red-500 rounded-lg flex flex-col items-center justify-center'
+        >
+            <div className="text-xl font-bold">ADD</div>
+            <div className="text-4xl">+</div>
+            <div className="text-sm">addition</div>
+        </button>
+        <button 
+          onClick={() => handleModeSelection('subtraction')}
+          className='w-[30%] h-48 border-4 border-blue-500 rounded-lg flex flex-col items-center justify-center'
+        >
+            <div className="text-xl font-bold">SUB</div>
+            <div className="text-4xl">-</div>
+            <div className="text-sm">subtraction</div>
+        </button>
       </div>
-      <input type="text" value={maxNumber} onChange={(e) => setMaxNumber(e.target.value)}/>
+      <div>Max Number:</div>
+      <input className='border-2' type="text" value={maxNumber} onChange={(e) => setMaxNumber(e.target.value)}/>
 
     </div>
   )
