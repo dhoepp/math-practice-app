@@ -49,6 +49,12 @@ export default function PracticeSession() {
   const maxNumber = Number(searchParams.get('maxNumber')) || 10
   const navigate = useNavigate()
 
+  const buttonClass = 'w-full bg-white py-8 text-3xl active:bg-gray-300 border-2'
+
+  const handleNumberClick = (num: string) => {
+    setUserAnswer(userAnswer + num)
+  }
+
   const handleSubmit = async () => {
     const answerInt = (Number(userAnswer))
     const isCorrect = answerInt === problem?.answer
@@ -84,17 +90,32 @@ export default function PracticeSession() {
         <div className='flex-grow'>
           <h2>Solve the problem:</h2>
           <p>{problem.operand1} {problem.operator} {problem.operand2} = ?</p>
-          <input className='border-2' type="text" value={userAnswer}  onChange={(e) => setUserAnswer(e.target.value)}  placeholder="Your answer here"
+          <p className='border-2 text-4xl max-w-xl mx-auto py-8 '>{userAnswer || '\u00A0'}</p>
+          <div className='grid grid-cols-3 gap-4 bg-gray-300 max-w-xl mx-auto border-2'>
+            <button className={buttonClass} onClick={() => handleNumberClick('1')}>1</button>
+            <button className={buttonClass} onClick={() => handleNumberClick('2')}>2</button>
+            <button className={buttonClass} onClick={() => handleNumberClick('3')}>3</button>
+            <button className={buttonClass} onClick={() => handleNumberClick('4')}>4</button>
+            <button className={buttonClass} onClick={() => handleNumberClick('5')}>5</button>
+            <button className={buttonClass} onClick={() => handleNumberClick('6')}>6</button>
+            <button className={buttonClass} onClick={() => handleNumberClick('7')}>7</button>
+            <button className={buttonClass} onClick={() => handleNumberClick('8')}>8</button>
+            <button className={buttonClass} onClick={() => handleNumberClick('9')}>9</button>
+            <button className={`${buttonClass} bg-red-300`} onClick={() => setUserAnswer('')}>C</button>
+            <button className={buttonClass} onClick={() => handleNumberClick('0')}>0</button>
+            <button className={`${buttonClass} bg-green-400`} onClick={() => handleSubmit()}>OK</button>
+          </div>
+          {/* <input className='border-2' type="text" value={userAnswer}  onChange={(e) => setUserAnswer(e.target.value)}  placeholder="Your answer here"
              onKeyDown={(e) => e.key === 'Enter' && handleSubmit()}/>
-          <button className='border-2' onClick={handleSubmit}>Submit</button>
+          <button className='border-2' onClick={handleSubmit}>Submit</button> */}
           {/* <p>You typed: {userAnswer}</p> */}
-          <p>{feedbackMessage}</p> 
+          <p className='border-2 text-4xl max-w-xl mx-auto py-8 '>{feedbackMessage || '\u00A0'}</p> 
           
     </div>
       ) : (
         <p>Loading problem...</p>
       )}
-      <div className='mb-[200px] flex justify-center'>
+      <div className='mb-[100px] flex justify-center'>
         <button className='border-2 w-[20%] ' onClick={() => navigate('/')}>Home</button>
       </div>
 
