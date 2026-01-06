@@ -85,12 +85,12 @@ export default function PracticeSession() {
     }, [])
     
   return (
-    <div className="p-4 text-center min-h-screen flex flex-col justify-center">
+    <div className="p-4 text-center text-3xl max-h-screen flex flex-col justify-center">
       {problem ? (
         <div className='flex-grow'>
           <h2>Solve the problem:</h2>
           <p>{problem.operand1} {problem.operator} {problem.operand2} = ?</p>
-          <p className='border-2 text-4xl max-w-xl mx-auto p-2 '>{userAnswer || '\u00A0'}</p>
+          <p className='border-2 max-w-xl mx-auto p-2 '>{userAnswer || '\u00A0'}</p>
           <div className='grid grid-cols-3 p-2 gap-2 bg-gray-300 max-w-xl mx-auto border-2'>
             <button className={buttonClass} onClick={() => handleNumberClick('1')}>1</button>
             <button className={buttonClass} onClick={() => handleNumberClick('2')}>2</button>
@@ -101,9 +101,11 @@ export default function PracticeSession() {
             <button className={buttonClass} onClick={() => handleNumberClick('7')}>7</button>
             <button className={buttonClass} onClick={() => handleNumberClick('8')}>8</button>
             <button className={buttonClass} onClick={() => handleNumberClick('9')}>9</button>
-            <button className={`${buttonClass} bg-red-300`} onClick={() => setUserAnswer('')}>C</button>
+            <button className='w-full py-8 text-3xl active:bg-gray-300 border-2 bg-red-300' 
+              onClick={() => setUserAnswer('')}>C</button>
             <button className={buttonClass} onClick={() => handleNumberClick('0')}>0</button>
-            <button className={`${buttonClass} bg-green-400`} onClick={() => handleSubmit()}>OK</button>
+            <button className='w-full py-8 text-3xl active:bg-gray-300 border-2 bg-green-400' 
+              onClick={() => handleSubmit()}>OK</button>
           </div>
           {/* <input className='border-2' type="text" value={userAnswer}  onChange={(e) => setUserAnswer(e.target.value)}  placeholder="Your answer here"
              onKeyDown={(e) => e.key === 'Enter' && handleSubmit()}/>
