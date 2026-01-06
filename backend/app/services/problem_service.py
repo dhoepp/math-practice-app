@@ -29,7 +29,7 @@ def generate_problem(
 
     if mode == "addition":
         operand1 = random.randint(0, max_number)
-        operand2 = random.randint(0, max_number)
+        operand2 = random.randint(0, max_number - operand1) #keeps answer below max_number (eg. max_number is 10, 4+6 or 8+2, instead of 9+8)
         operator = "+"
         answer = operand1 + operand2 
         return Problem(

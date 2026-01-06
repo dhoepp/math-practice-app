@@ -36,12 +36,17 @@
  */
 import React from 'react'
 import { generateProblem, submitAnswer, type Problem } from '../services/api'
+import { useSearchParams } from 'react-router-dom'
 
 export default function PracticeSession() {
   // TODO: Implement
   const [problem, setProblem] = React.useState<Problem | null>(null)
   const [userAnswer, setUserAnswer] = React.useState('')
   const [feedbackMessage, setFeedback] = React.useState<string | null>(null)
+
+  const [searchParams] = useSearchParams()
+  const mode = (searchParams.get('mode') || 'addition') as 'addition' | 'subtraction'
+  const maxNumber = Number(searchParams.get('maxNumber')) || 10
 
   const handleSubmit = async () => {
     const answerInt = (Number(userAnswer))
@@ -50,12 +55,23 @@ export default function PracticeSession() {
     setFeedback(feedbackMessage)
     console.log('Submitting answer:', answerInt)
     console.log('Your answer is: ', answerInt === problem?.answer)
+    setTimeout(() => {
+      //reload problem after 3 seconds
+      async function fetchNewProblem() {
+      const newProblem = await generateProblem(mode, maxNumber)
+      setProblem(newProblem)
+      setFeedback("")
+      setUserAnswer('')
+
+    }
+    fetchNewProblem()
+    }, 3000)//3 seconds
     
   }
   React.useEffect(() => {
     // fetch and store in state
     async function fetchProblem() {
-      const newProblem = await generateProblem('addition', 10)
+      const newProblem = await generateProblem(mode, maxNumber)
       setProblem(newProblem)
     }
     fetchProblem()
