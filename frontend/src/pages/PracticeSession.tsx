@@ -36,7 +36,7 @@
  */
 import React from 'react'
 import { generateProblem, submitAnswer, type Problem } from '../services/api'
-import { useSearchParams } from 'react-router-dom'
+import { useSearchParams, useNavigate } from 'react-router-dom'
 
 export default function PracticeSession() {
   // TODO: Implement
@@ -47,6 +47,7 @@ export default function PracticeSession() {
   const [searchParams] = useSearchParams()
   const mode = (searchParams.get('mode') || 'addition') as 'addition' | 'subtraction'
   const maxNumber = Number(searchParams.get('maxNumber')) || 10
+  const navigate = useNavigate()
 
   const handleSubmit = async () => {
     const answerInt = (Number(userAnswer))
@@ -78,14 +79,14 @@ export default function PracticeSession() {
     }, [])
     
   return (
-    <div className="p-8 text-center">
+    <div className="p-8 text-center min-h-screen flex flex-col justify-center">
       {problem ? (
-        <div>
+        <div className='flex-grow'>
           <h2>Solve the problem:</h2>
           <p>{problem.operand1} {problem.operator} {problem.operand2} = ?</p>
-          <input type="text" value={userAnswer}  onChange={(e) => setUserAnswer(e.target.value)}  placeholder="Your answer here"
+          <input className='border-2' type="text" value={userAnswer}  onChange={(e) => setUserAnswer(e.target.value)}  placeholder="Your answer here"
              onKeyDown={(e) => e.key === 'Enter' && handleSubmit()}/>
-          <button onClick={handleSubmit}>Submit</button>
+          <button className='border-2' onClick={handleSubmit}>Submit</button>
           {/* <p>You typed: {userAnswer}</p> */}
           <p>{feedbackMessage}</p> 
           
@@ -93,8 +94,12 @@ export default function PracticeSession() {
       ) : (
         <p>Loading problem...</p>
       )}
-    
+      <div className='mb-[200px] flex justify-center'>
+        <button className='border-2 w-[20%] ' onClick={() => navigate('/')}>Home</button>
+      </div>
 
     </div>
+    
+    
   )
 }
