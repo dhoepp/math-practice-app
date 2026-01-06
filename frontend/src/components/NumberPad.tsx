@@ -36,7 +36,7 @@ export default function NumberPad(props: NumberPadProps) {
   // TODO: Implement
   return (
     <div>
-      <p>TODO: Implement NumberPad component</p>
+      
     </div>
   )
 }
