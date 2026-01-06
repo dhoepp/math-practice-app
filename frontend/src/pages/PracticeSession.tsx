@@ -84,7 +84,7 @@ export default function PracticeSession() {
         <div className='flex-grow'>
           <h2>Solve the problem:</h2>
           <p>{problem.operand1} {problem.operator} {problem.operand2} = ?</p>
-          <input className='border-2' type="text" value={userAnswer}  onChange={(e) => setUserAnswer(e.target.value)}  placeholder="Your answer here"
+          <input className='border-2' type="number" value={userAnswer}  onChange={(e) => setUserAnswer(e.target.value)}  placeholder="Your answer here"
              onKeyDown={(e) => e.key === 'Enter' && handleSubmit()}/>
           <button className='border-2' onClick={handleSubmit}>Submit</button>
           {/* <p>You typed: {userAnswer}</p> */}
