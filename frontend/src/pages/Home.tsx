@@ -26,7 +26,7 @@ export default function Home() {
   // TODO: Implement
 
   const navigate = useNavigate()
-  const [maxNumber, setMaxNumber] = React.useState('10')
+  const [maxNumber, setMaxNumber] = React.useState(10)
   const handleModeSelection = (mode : 'addition' | 'subtraction' ) => {
     navigate(`/practice?mode=${mode}&maxNumber=${maxNumber}`)
   }
@@ -54,7 +54,7 @@ export default function Home() {
         </button>
       </div>
       <div>Max Number:</div>
-      <input className='border-2' type="number" value={maxNumber} onChange={(e) => setMaxNumber(e.target.value)}/>
+      <input className='border-2' type="number" value={maxNumber} onChange={(e) => setMaxNumber(Number(e.target.value))}/>
 
     </div>
   )
