@@ -23,7 +23,7 @@ export interface Problem {
 }
 
 interface SessionData {
-  mode: 'addition' | 'subtraction'
+  mode: 'addition' | 'subtraction' | 'sub_w_neg'
   max_number: number
   problems_count: number
 }
@@ -56,7 +56,7 @@ export async function checkHealth(): Promise<{ status: string }> {
  * TODO: Implement problem generation
  */
 export async function generateProblem(
-  mode: 'addition' | 'subtraction',
+  mode: 'addition' | 'subtraction' | 'sub_w_neg',
   maxNumber: number = 10,
 ): Promise<Problem> {
   const url = `${API_BASE_URL}/api/problems/generate?mode=${mode}&max_number=${maxNumber}`

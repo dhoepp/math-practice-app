@@ -13,7 +13,7 @@ router = APIRouter()
 
 @router.post("/generate", response_model=Problem)
 async def generate_problem_endpoint(
-    mode: Literal["addition", "subtraction"],
+    mode: Literal["addition", "subtraction", "sub_w_neg"],
     max_number: int = 10,
 ):
     """
