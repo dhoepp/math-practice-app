@@ -2,38 +2,28 @@
 
 Educational web app for 1st grade math practice. A clean, focused learning tool without distractions.
 
-## Current Status: MVP Development
+## Current Status: MVP Deployed
 
-**What's working:**
+### Deployment Info:
 
-- Project structure scaffolded ✓
-- Backend API stub (FastAPI) ✓
-- Frontend app stub (React + TypeScript + Tailwind) ✓
-
-**What's next:**
-
-- Implement problem generation
-- Build UI components
-- Test with real 6-year-old
+- Live app: [https://math-practice-app-eta.vercel.app/]
+- Backend: Hosted on Railway
+- Frontend: Hosted on Vercel
 
 ## Quick Start
 
 ### Backend Setup
 
 ```bash
-cd backend
-pip install -r requirements.txt
-uvicorn app.main:app --reload
+./start.sh
 ```
 
-Visit <http://localhost:8000/docs> for API documentation.
+Visit <http://localhost:8000/docs> for API swagger documentation.
 
 ### Frontend Setup
 
 ```bash
-cd frontend
-npm install
-npm run dev
+./startfrontend.sh
 ```
 
 Visit <http://localhost:3000> to see the app.
@@ -43,15 +33,16 @@ Visit <http://localhost:3000> to see the app.
 **Practice Modes:**
 
 - Addition (0-10)
-- Subtraction (0-10)
+- Subtraction (0-10) (allow_negative coming soon)
+- Adaptive difficulty (custom max number)
 
 **User Experience:**
 
 - Large, touch-friendly number pad
 - Immediate feedback on answers
-- Simple visual rewards
-- Progress indicator
-- Session summary screen
+- Simple visual rewards (coming soon)
+- Progress indicator (coming soon)
+- Session summary screen (coming soon)
 
 **Tech Stack:**
 
@@ -108,7 +99,6 @@ math-practice-app/
 - Reading practice (Phase 2)
 - User accounts/authentication
 - Parent dashboard
-- Adaptive difficulty
 - Multiplayer features
 - Sound effects
 
@@ -116,23 +106,17 @@ Focus on getting one thing working really well: simple math practice that a 6-ye
 
 ## Testing
 
-Manual testing with real kids > automated tests for MVP.
-
 Test checklist:
 
-- [ ] Works on iPad Safari
-- [ ] 6-year-old can use without help
-- [ ] Touch targets are big enough
-- [ ] Feedback is encouraging, never punishing
-- [ ] Can complete a full session without bugs
+- [x] Works on iPad Safari
+- [x] 6-year-old can use without help
+- [x] Touch targets are big enough
+- [x] Feedback is encouraging, never punishing
+- [x] Can complete a full session without bugs
 
 ## Contributing
 
 This is a personal learning project, but feedback and suggestions welcome! Open an issue if you have ideas.
-
-## License
-
-TBD - Will choose an open source license before public release.
 
 ## Contact
 

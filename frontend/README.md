@@ -85,7 +85,7 @@ frontend/
 
 ### Testing on iPad
 Since the target users are 6-year-olds on iPads, test frequently on actual devices:
-1. Run dev server with `npm run dev`
+1. After starting backend server, run dev server with `npm run dev`
 2. Find your computer's IP address (e.g., `192.168.1.x`)
 3. On iPad Safari, go to `http://YOUR_IP:3000`
 4. Test touch interactions, font sizes, button sizes

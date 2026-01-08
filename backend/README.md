@@ -36,6 +36,9 @@ The API will be available at:
 
 ## API Endpoints
 
+- [x] `POST /api/problems/generate` - Generate a random math problem
+- [ ]`POST /api/problems/validate` - Validate user's answer (currently handled client side)
+
 ### Health Check
 
 - `GET /` - Basic health check
@@ -43,8 +46,7 @@ The API will be available at:
 
 ### Problems (TODO)
 
-- `POST /api/problems/generate` - Generate a random math problem
-- `POST /api/problems/validate` - Validate user's answer
+
 
 ### Sessions (TODO)
 
