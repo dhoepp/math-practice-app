@@ -68,7 +68,7 @@ export default function Home() {
         
       </div>
       <div className='pt-8'>Max Number:</div>
-      <input className='border-2' type="number" value={maxNumber} onChange={(e) => setMaxNumber(Number(e.target.value))}/>
+      <input className='border-2' type="text" inputMode="numeric" pattern='[0-9]*' value={maxNumber} onChange={(e) => setMaxNumber(Number(e.target.value))}/>
 
     </div>
   )
