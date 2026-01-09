@@ -27,18 +27,26 @@ export default function Home() {
 
   const navigate = useNavigate()
   const [maxNumber, setMaxNumber] = React.useState(10)
-  const handleModeSelection = (mode : 'addition' | 'subtraction' ) => {
-    navigate(`/practice?mode=${mode}&maxNumber=${maxNumber}`)
-  }
+  // const handleModeSelection = (mode : 'addition' | 'subtraction' ) => {
+  //   navigate(`/practice?mode=${mode}&maxNumber=${maxNumber}`)
+  // }
+  const handleModeSelection = (mode: 'addition' | 'subtraction') => {
+  const actualMode = mode === 'subtraction' && allowNegatives 
+    ? 'sub_w_neg' 
+    : mode
+    navigate(`/practice?mode=${actualMode}&maxNumber=${maxNumber}`)
+}
+
+  const [allowNegatives, setAllowNegatives] = React.useState(false)
 
   return (
     <div className="p-8 text-center">
       <h1>Mode Selection</h1>
       {/* <p>TODO: Implement home page</p> */}
-      <div className="flex gap-4 justify-center">
+      <div className="flex gap-4 justify-center grid grid-cols-2 mx-auto max-w-xl">
         <button 
           onClick={() => handleModeSelection('addition')}
-          className='w-[30%] h-48 border-4 border-red-500 rounded-lg flex flex-col items-center justify-center'
+          className='w-full h-48 border-4 border-red-500 rounded-lg flex flex-col items-center justify-center'
         >
             <div className="text-xl font-bold">ADD</div>
             <div className="text-4xl">+</div>
@@ -46,15 +54,21 @@ export default function Home() {
         </button>
         <button 
           onClick={() => handleModeSelection('subtraction')}
-          className='w-[30%] h-48 border-4 border-blue-500 rounded-lg flex flex-col items-center justify-center'
+          className='w-full h-48 border-4 border-blue-500 rounded-lg flex flex-col items-center justify-center'
         >
             <div className="text-xl font-bold">SUB</div>
             <div className="text-4xl">-</div>
             <div className="text-sm">subtraction</div>
         </button>
+        <div></div>
+        <label>
+          <input type="checkbox" checked={allowNegatives} onChange={(e) => setAllowNegatives(e.target.checked)}/>
+            Allow negatives
+        </label>
+        
       </div>
-      <div>Max Number:</div>
-      <input className='border-2' type="number" value={maxNumber} onChange={(e) => setMaxNumber(Number(e.target.value))}/>
+      <div className='pt-8'>Max Number:</div>
+      <input className='border-2' type="text" inputMode="numeric" pattern='[0-9]*' value={maxNumber} onChange={(e) => setMaxNumber(Number(e.target.value))}/>
 
     </div>
   )

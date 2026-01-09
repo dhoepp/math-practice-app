@@ -45,7 +45,7 @@ export default function PracticeSession() {
   const [feedbackMessage, setFeedback] = React.useState<string | null>(null)
 
   const [searchParams] = useSearchParams()
-  const mode = (searchParams.get('mode') || 'addition') as 'addition' | 'subtraction'
+  const mode = (searchParams.get('mode') || 'addition') as 'addition' | 'subtraction' | 'sub_w_neg'
   const maxNumber = Number(searchParams.get('maxNumber')) || 10
   const navigate = useNavigate()
 
@@ -106,6 +106,9 @@ export default function PracticeSession() {
             <button className={buttonClass} onClick={() => handleNumberClick('0')}>0</button>
             <button className='w-full py-8 text-3xl active:bg-gray-300 border-2 bg-green-400' 
               onClick={() => handleSubmit()}>OK</button>
+            {mode === 'sub_w_neg' && (
+              <button className={buttonClass} onClick={() => handleNumberClick('-')}>-</button>
+            )}
           </div>
           {/* <input className='border-2' type="text" value={userAnswer}  onChange={(e) => setUserAnswer(e.target.value)}  placeholder="Your answer here"
              onKeyDown={(e) => e.key === 'Enter' && handleSubmit()}/>

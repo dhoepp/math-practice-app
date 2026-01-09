@@ -8,24 +8,10 @@ from typing import Literal
 from app.models.problem import Problem
 
 def generate_problem(
-    mode: Literal["addition", "subtraction"],
+    mode: Literal["addition", "subtraction", "sub_w_neg"],
     max_number: int = 10,
 ) -> Problem:
-    """
-    Generate a random math problem
-
-    TODO: Implement problem generation
-    Requirements:
-    - For addition: operand1 + operand2, both 0-max_number, answer <= max_number * 2
-    - For subtraction: operand1 - operand2, ensure answer >= 0 (no negative results)
-    - Return Problem object with operands, operator, and answer
-    - Consider: should larger number always come first in subtraction? (probably yes for 1st grade)
-
-    Example logic for subtraction:
-    - operand1 = random.randint(0, max_number)
-    - operand2 = random.randint(0, operand1)  # ensures non-negative result
-    - answer = operand1 - operand2
-    """
+    
 
     if mode == "addition":
         operand1 = random.randint(0, max_number)
@@ -42,6 +28,17 @@ def generate_problem(
     elif mode == "subtraction":
         operand1 = random.randint(5, max_number) #5 or higher
         operand2 = random.randint(0, operand1) #to prevent negative numbers
+        operator = "-"
+        answer = operand1 - operand2
+        return Problem(
+            operand1=operand1, 
+            operand2=operand2, 
+            operator=operator, 
+            answer=answer)
+    
+    elif mode == "sub_w_neg":
+        operand1 = random.randint(0, max_number) 
+        operand2 = random.randint(0, max_number) #negatives_allowed
         operator = "-"
         answer = operand1 - operand2
         return Problem(
