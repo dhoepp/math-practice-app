@@ -7,7 +7,7 @@ Educational web app for 1st grade math practice. A clean, focused learning tool 
 ### Deployment Info:
 
 - Live app: [https://math-practice-app-eta.vercel.app/]
-- Backend: Hosted on Railway
+- Backend: ~~Hosted on Railway~~ temporarily substituted with JS
 - Frontend: Hosted on Vercel
 
 ## Quick Start
@@ -15,7 +15,7 @@ Educational web app for 1st grade math practice. A clean, focused learning tool 
 ### Backend Setup
 
 ```bash
-./start.sh
+./start.sh //backend bypassed with JS frontend
 ```
 
 Visit <http://localhost:8000/docs> for API swagger documentation.
