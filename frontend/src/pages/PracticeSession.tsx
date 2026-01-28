@@ -35,8 +35,9 @@
  * 6. When all problems done, navigate to /complete
  */
 import React from 'react'
-import { generateProblem, submitAnswer, type Problem } from '../services/api'
+//import { generateProblem, submitAnswer, type Problem } from '../services/api'
 import { useSearchParams, useNavigate } from 'react-router-dom'
+import { generateProblem, type Problem, type Mode } from '../utils/generateProblem';
 
 export default function PracticeSession() {
   // TODO: Implement
@@ -65,7 +66,7 @@ export default function PracticeSession() {
     setTimeout(() => {
       //reload problem after 3 seconds
       async function fetchNewProblem() {
-      const newProblem = await generateProblem(mode, maxNumber)
+      const newProblem = generateProblem(mode, maxNumber)
       setProblem(newProblem)
       setFeedback("")
       setUserAnswer('')
