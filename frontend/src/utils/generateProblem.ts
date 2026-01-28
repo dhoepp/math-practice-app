@@ -9,13 +9,14 @@ export interface Problem {
 
 export function generateProblem(mode: Mode, maxNumber: number = 10): Problem {
   if (mode === "addition") {
-    const operand1 = Math.floor(Math.random() * (maxNumber + 1));
-    const operand2 = Math.floor(Math.random() * (maxNumber - operand1 + 1));
+    const answer = Math.floor(Math.random() * (maxNumber - 5 + 1)) + 5; //added answer to distribute probability
+    const operand1 = Math.floor(Math.random() * (answer + 1));
+    const operand2 = answer - operand1;
     return {
       operand1,
       operand2,
       operator: "+",
-      answer: operand1 + operand2
+      answer
     };
   } 
   
